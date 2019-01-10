@@ -43,14 +43,10 @@ public class Controlador_Server implements Runnable {
       String msg = null;
       while((msg = in.readLine()) != null) {
         String[] split = msg.split(" ");
-        if (split[0].equals("VIAJAR")) {
-          control.quero_viajar(Integer.parseInt(split[1]), Integer.parseInt(split[2]));
-          out.println("Podes entrar!");
-        }
-        if (split[0].equals("SAIR")) {
-          control.quero_sair(Integer.parseInt(split[1]));
-          out.println("Podes sair!");
-        }
+        control.quero_viajar(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
+        out.println("Podes entrar!");
+        control.quero_sair(Integer.parseInt(split[1]));
+        out.println("Podes sair!");
       }
     }
     catch (IOException e) {}
